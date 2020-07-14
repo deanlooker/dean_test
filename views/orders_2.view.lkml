@@ -48,6 +48,7 @@ view: dean_orders_2 {
     ]
     sql: ${TABLE}.created_at ;;
     drill_fields: [users.country]
+    allow_fill: no
   }
 
   measure: most_recent {
