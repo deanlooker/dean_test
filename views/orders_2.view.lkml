@@ -35,6 +35,21 @@ view: dean_orders_2 {
     drill_fields: [users.country]
   }
 
+  dimension_group: created_nofill {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.created_at ;;
+    drill_fields: [users.country]
+  }
+
   measure: most_recent {
     type:  date
     sql: max(${created_date}) ;;
