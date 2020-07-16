@@ -3,7 +3,13 @@ view: users_sqldt {
     sql: SELECT
         * from demo_db.users
       where
-      {% condition state_filter %} users.state {% endcondition %}
+      {% if state_param._parameter_value == "'all states'" %}
+      1=1
+      {% elsif state_param._parameter_value == "'NYC Area only'" %}
+      users.state IN ('New York', 'Pennsylvania', 'New Jersey', 'Connecticut' )
+      {% elsif state_param._parameter_value == "'non-NYC Area only'" %}
+      users.state NOT IN ('New York', 'Pennsylvania', 'New Jersey', 'Connecticut' )
+      {% endif %}
       ;;
   }
   drill_fields: [id]
@@ -15,6 +21,15 @@ view: users_sqldt {
   dimension: state {
     type: string
     sql:  ${TABLE}.state ;;
+  }
+
+  parameter: state_param {
+    label: "State Parameter"
+    type:  string
+    allowed_value: {value: "all states" }
+    allowed_value: {value: "NYC Area only" }
+    allowed_value: {value: "non-NYC Area only" }
+    default_value: "all states"
   }
 
   dimension: id {
