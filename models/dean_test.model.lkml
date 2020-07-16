@@ -24,6 +24,8 @@ explore: derived_test_table_3_20190510 {}
 #   }
 # }
 
+explore: users_sqldt {}
+
 explore: inventory_items {
   join: products {
     type: left_outer
