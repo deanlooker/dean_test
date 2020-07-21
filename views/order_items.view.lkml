@@ -48,4 +48,9 @@ view: order_items {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
   }
+
+  measure: count_x2 {
+    type: number
+    sql: ${count} * 2 ;;
+  }
 }
