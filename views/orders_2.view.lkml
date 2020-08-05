@@ -22,9 +22,9 @@ view: dean_orders_2 {
 
   dimension: last_order_id {
     type: number
-    sql: (SELECT ${TABLE}.id
-      FROM ${TABLE}
-      ORDER BY ${TABLE}.created_at DESC
+    sql: (SELECT id
+      FROM ${dean_orders_2.SQL_TABLE_NAME}
+      ORDER BY created_at DESC
       LIMIT 1)
       ;;
   }
