@@ -25,6 +25,15 @@ view: users {
     sql: ${TABLE}.country ;;
   }
 
+  dimension: last_user_id {
+    type: number
+    sql: (SELECT ${TABLE}.id
+      FROM ${TABLE}
+      ORDER BY ${TABLE}.created_at DESC
+      LIMIT 1)
+      ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
