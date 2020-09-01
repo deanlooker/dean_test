@@ -70,7 +70,7 @@ view: dean_orders_2 {
     sql: ${TABLE}.status ;;
     link: {
       label: "Device Detail Overview"
-      url: "/dashboards/4321?Status={{ value | url_encode }}"
+      url: "/embed/dashboards-next/4321?Status={{ value | url_encode }}"
       icon_url: "/favicon.ico"
     }
   }
