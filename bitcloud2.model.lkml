@@ -29,6 +29,8 @@ explore: inventory_items {
   }
 }
 
+
+
 explore: order_items {
   view_name: order_items
   join: inventory_items {

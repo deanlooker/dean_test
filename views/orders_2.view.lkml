@@ -68,6 +68,11 @@ view: dean_orders_2 {
   dimension: status {
     type: string
     sql: ${TABLE}.status ;;
+    link: {
+      label: "Device Detail Overview"
+      url: "/dashboards-next/4321?Status={{ value | url_encode }}"
+      icon_url: "/favicon.ico"
+    }
   }
 
   measure: distinct_users {
@@ -84,6 +89,7 @@ view: dean_orders_2 {
     type: number
     # hidden: yes
     sql: ${TABLE}.user_id ;;
+
   }
 
   measure: count {
