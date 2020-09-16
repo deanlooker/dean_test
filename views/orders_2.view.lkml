@@ -44,6 +44,11 @@ view: dean_orders_2 {
     drill_fields: [users.country]
   }
 
+  dimension: months_since_user_created {
+    type: number
+    sql: timestampdiff(month, timestamp({% parameter date_param %}), ${users.created_raw}) ;;
+  }
+
   dimension_group: created_nofill {
     type: time
     timeframes: [
@@ -95,6 +100,7 @@ view: dean_orders_2 {
   measure: count {
     type: count
     drill_fields: [id, users.first_name, users.last_name, users.id, order_items.count]
+
   }
 
 }
