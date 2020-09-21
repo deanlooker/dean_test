@@ -19,7 +19,7 @@ persist_with: dean_test_default_datagroup
 test: test_test {
   explore_source: dean_orders_2 {
     column: count {
-      field: count
+      field: dean_orders_2.count
     }
   }
   assert: count_not_zero {
