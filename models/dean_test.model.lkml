@@ -12,6 +12,19 @@ datagroup: dean_test_default_datagroup {
 
 persist_with: dean_test_default_datagroup
 
+
+test: test_test {
+  explore_source: dean_orders_2 {
+    column: count {
+      field: count
+    }
+  }
+  assert: count_not_zero {
+    expression: ${dean_orders_2.count} > 0 ;;
+    ##COUNTING AND STUFF LOL
+  }
+}
+
 explore: connection_reg_r3 {
   sql_always_where: 1=2 ;;
 }
