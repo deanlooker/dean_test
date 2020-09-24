@@ -29,6 +29,16 @@ view: dean_orders_2 {
       ;;
   }
 
+  dimension: user_type {
+    label: "Media Type"
+    description: "SMS, MMS, or Video"
+    type: string
+    sql: case
+    -- when ${user_facts.count} > 0 then 'userfact'
+          when ${users.age} >18 then 'user'
+          else 'MMS' end ;; # ${messages.media_url} is not null
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
