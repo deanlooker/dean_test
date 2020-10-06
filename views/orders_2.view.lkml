@@ -54,6 +54,14 @@ view: dean_orders_2 {
     drill_fields: [users.country]
   }
 
+  dimension: created_only_month {
+    type: date
+    sql: ${created_month} ;;
+    html: {{ rendered_value | date: "%b '%y" }} ;;
+    allow_fill: no
+    label: "created only month"
+  }
+
   dimension: months_since_user_created {
     type: number
     sql: timestampdiff(month, timestamp({% parameter date_param %}), ${users.created_raw}) ;;

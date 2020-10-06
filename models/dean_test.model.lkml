@@ -6,11 +6,11 @@ include: "/views/**/*.view"
 include: "/Dashboards/*.dashboard.lookml"
 
 datagroup: dean_test_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT hour(curtime());;
   max_cache_age: "1 hour"
 }
 
-persist_with: dean_test_default_datagroup
+# persist_with: dean_test_default_datagroup
 
 #test
 #test
