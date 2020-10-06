@@ -56,7 +56,7 @@ view: dean_orders_2 {
 
   dimension: created_only_month {
     type: date
-    sql: ${created_month} ;;
+    sql: concat(year(${created_date}),"-",month(${created_date}),"-01") ;;
     html: {{ rendered_value | date: "%b '%y" }} ;;
     allow_fill: no
     label: "created only month"
