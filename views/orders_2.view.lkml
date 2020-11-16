@@ -39,6 +39,11 @@ view: dean_orders_2 {
           else 'MMS' end ;; # ${messages.media_url} is not null
   }
 
+  dimension: is_complete {
+    type: yesno
+    sql: ${status} = "complete" ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
