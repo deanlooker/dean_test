@@ -59,6 +59,23 @@ view: dean_orders_2 {
     drill_fields: [users.country]
   }
 
+  dimension_group: created_no_tz {
+    label: "Created (No TZ Convert)"
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}.created_at ;;
+    drill_fields: [users.country]
+    convert_tz: no
+  }
+
   dimension: created_only_month {
     type: date
     sql: concat(year(${created_date}),"-",month(${created_date}),"-01") ;;
