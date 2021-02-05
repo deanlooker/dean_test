@@ -124,6 +124,12 @@ explore: dean_orders_2 {
     sql_on: ${order_items.order_id} = ${dean_orders_2.id} ;;
     relationship: one_to_many
   }
+
+  query: count {
+          measures: [count]
+          timezone: "America/New_York"
+        }
+
 }
 
 explore: products {}

@@ -47,8 +47,10 @@ view: dean_orders {
       week,
       month,
       quarter,
-      year
+      year,
+      hour
     ]
+    datatype: timestamp
     sql: ${TABLE}.created_at ;;
     drill_fields: [users.country]
   }
