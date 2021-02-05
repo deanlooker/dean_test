@@ -29,8 +29,8 @@
     width: 8
     height: 6
   filters:
-  - name: Testing avg. field stuff
-    title: Testing avg. field stuff
+  - name: Testing avg field stuff
+    title: Testing avg field stuff
     type: number_filter
     default_value: ">0"
     allow_multiple_values: true

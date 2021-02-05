@@ -125,11 +125,13 @@ explore: dean_orders_2 {
     relationship: one_to_many
   }
 
-  query: count {
-          measures: [count]
-          timezone: "America/New_York"
-        }
-
+  query: testquery {
+    label: "Test Query"
+    description: "Information about this query"
+    dimensions: [is_complete]
+    measures: [count]
+    filters: [dean_orders_2.is_complete: "Yes"]
+  }
 }
 
 explore: products {}
